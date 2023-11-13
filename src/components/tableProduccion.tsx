@@ -1,7 +1,7 @@
 import React from 'react';
 import { View,TextInput, Text, StyleSheet } from 'react-native';
 
-const Table = () => {
+const TableProduccion = () => {
   return (
     <View style={styles.table}>
       <View style={styles.row}>
@@ -176,9 +176,10 @@ const styles = StyleSheet.create({
   },
   rowMin: {
     flexDirection: 'row',
+    paddingBottom: 0,
     borderBottomWidth: 2,
     borderColor: '#000',
-    height: 35,
+    height: 40,
   },
   cell: {
     flex: 1,
@@ -201,7 +202,7 @@ const styles = StyleSheet.create({
   },
   cellTextMin: {
     textAlign: 'center',
-    fontSize: 11,
+    fontSize: 12,
   },
   cellTextMax: {
     textAlign: 'center',
@@ -213,10 +214,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     borderColor: 'gray',
     borderWidth: 0.75,
-    marginBottom: 10,
     paddingHorizontal: 5,
     textAlign: 'center'
   },
 });
 
-export default Table;
+export default TableProduccion;
