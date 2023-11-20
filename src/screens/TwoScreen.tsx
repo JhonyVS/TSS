@@ -1,32 +1,33 @@
 import React from 'react';
 import { View, Text, StyleSheet, Button } from 'react-native';
-import { useNavigation } from '@react-navigation/native'; // Importa useNavigation
 import TableProduccion from '../components/tableProduccion';
 import { StatusBar } from 'expo-status-bar';
 import FooterCustom from '../components/FooterCustom';
+import { useNavigation } from '@react-navigation/native'; // Importa useNavigation
 
 
-const OneScreen = () => {
+const TwoScreen = () => {
   const navigation = useNavigation(); // Obtiene la función de navegación
 
-  const handleButtonPress = () => {
+  const handleButtonPress = () => { 
     // Navega a la siguiente pantalla al presionar el botón
-    navigation.navigate('TwoScreen'); // Reemplaza 'NextScreen' con el nombre real de tu siguiente pantalla 
+    navigation.navigate('OnetScreen'); // Reemplaza 'NextScreen' con el nombre real de tu siguiente pantalla
   };
 
-  return ( 
+  return (
     <View style={styles.container}>
       <View style={styles.titulo}>
-        <Text style={styles.textoTitulo}>PRODUCCION DIARIA DE LA FABRICA</Text>
-      </View>
-      <TableProduccion />
+          <Text style={styles.textoTitulo}>CAPACIDAD DE TRANSPORTE</Text>
+        </View>
+        <TableProduccion/>
       <StatusBar style="auto" />
       <View style={styles.containerButton}>
-        <Button title="Siguiente" onPress={handleButtonPress} />
+        <Button title= 'Siguiente' onPress={handleButtonPress}/> 
       </View>
-      <View style={styles.containerFooter}>
-        <FooterCustom />
-      </View>
+      <View style = {styles.containerFooter}>
+      <StatusBar style="auto" />
+        <FooterCustom/>
+      </View> 
     </View>
   );
 };
@@ -68,4 +69,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default OneScreen;
+export default TwoScreen;

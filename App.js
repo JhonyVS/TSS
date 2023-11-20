@@ -3,6 +3,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 
 import OneScreen from './src/screens/OneScreen';
+import TwoScreen from "./src/screens/TwoScreen";
 const Stack = createNativeStackNavigator();
 
 export default function App() {
@@ -11,9 +12,14 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen 
-          name= "Primer paso" 
+          name= 'OneScreen' 
           component={OneScreen}
           options = {{tittle: "Bienvenido"}}
+        /> 
+        <Stack.Screen 
+          name= "TwoScreen" 
+          component={TwoScreen}
+          options = {{tittle: "Bienvenido"}} 
         />
       </Stack.Navigator>
     </NavigationContainer>
