@@ -4,10 +4,12 @@ import TableTransporte from '../components/tableTransporte';
 import { StatusBar } from 'expo-status-bar';
 import FooterCustom from '../components/FooterCustom';
 import { useNavigation } from '@react-navigation/native'; // Importa useNavigation
+import { StackNavigationProp } from '@react-navigation/stack';
+import { RootStackParamList } from '../RootStackParamList';
 
-
+type oneScreenProp = StackNavigationProp<RootStackParamList, 'OneScreen'>;
 const TwoScreen = () => {
-  const navigation = useNavigation(); // Obtiene la función de navegación
+  const navigation = useNavigation<oneScreenProp>(); // Obtiene la función de navegación
 
   const handleButtonPress = () => { 
     // Navega a la siguiente pantalla al presionar el botón
