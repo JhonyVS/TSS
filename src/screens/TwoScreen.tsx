@@ -8,7 +8,7 @@ import { StackNavigationProp } from '@react-navigation/stack';
 import { RootStackParamList } from '../RootStackParamList';
 
 type oneScreenProp = StackNavigationProp<RootStackParamList, 'OneScreen'>;
-const TwoScreen = () => {
+const TwoScreen: React.FC = () => {
   const navigation = useNavigation<oneScreenProp>(); // Obtiene la función de navegación
 
   const handleButtonPress = () => { 

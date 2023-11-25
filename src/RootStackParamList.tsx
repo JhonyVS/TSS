@@ -8,11 +8,11 @@ export type RootStackParamList = {
     TwoScreen: undefined;
   };
   
-  const Stack = createStackNavigator<RootStackParamList>();
+const Stack = createStackNavigator<RootStackParamList>();
   
 export const RootNavigator = () => {
     return (
-      <Stack.Navigator initialRouteName="OneScreen">
+      <Stack.Navigator initialRouteName="TwoScreen">
         <Stack.Screen name="OneScreen"component={OneScreen}/>
         <Stack.Screen name="TwoScreen"component={TwoScreen}/>
       </Stack.Navigator>
