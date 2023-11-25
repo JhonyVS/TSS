@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet, Button } from 'react-native';
-import TableProduccion from '../components/tableProduccion';
+import TableTransporte from '../components/tableTransporte';
 import { StatusBar } from 'expo-status-bar';
 import FooterCustom from '../components/FooterCustom';
 import { useNavigation } from '@react-navigation/native'; // Importa useNavigation
@@ -11,7 +11,7 @@ const TwoScreen = () => {
 
   const handleButtonPress = () => { 
     // Navega a la siguiente pantalla al presionar el botón
-    navigation.navigate('OnetScreen'); // Reemplaza 'NextScreen' con el nombre real de tu siguiente pantalla
+    navigation.navigate('OneScreen'); // Reemplaza 'NextScreen' con el nombre real de tu siguiente pantalla
   };
 
   return (
@@ -19,7 +19,7 @@ const TwoScreen = () => {
       <View style={styles.titulo}>
           <Text style={styles.textoTitulo}>CAPACIDAD DE TRANSPORTE</Text>
         </View>
-        <TableProduccion/>
+        <TableTransporte/>
       <StatusBar style="auto" />
       <View style={styles.containerButton}>
         <Button title= 'Siguiente' onPress={handleButtonPress}/> 

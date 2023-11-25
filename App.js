@@ -11,16 +11,8 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen 
-          name= 'OneScreen' 
-          component={OneScreen}
-          options = {{tittle: "Bienvenido"}}
-        /> 
-        <Stack.Screen 
-          name= "TwoScreen" 
-          component={TwoScreen}
-          options = {{tittle: "Bienvenido"}} 
-        />
+        <Stack.Screen name= 'OneScreen' component={OneScreen}/> 
+        <Stack.Screen name= "TwoScreen" component={TwoScreen}/>
       </Stack.Navigator>
     </NavigationContainer>
   );
