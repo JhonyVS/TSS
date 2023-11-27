@@ -15,11 +15,11 @@ export const RootNavigator = () => {
   return (
     <Stack.Navigator
       initialRouteName="OneScreen"
-      //screenOptions={{ headerShown: false }}// ocultar la barra de navegacion
-      screenOptions={{
-        headerStyle: { backgroundColor: 'white' },
-        headerTintColor: 'blue',
-      }}
+      screenOptions={{ headerShown: false }}// ocultar la barra de navegacion
+      //screenOptions={{
+        //headerStyle: { backgroundColor: 'white' },
+        //headerTintColor: 'blue',
+      //}}
       
     >
       <Stack.Screen name="OneScreen" component={OneScreen} />

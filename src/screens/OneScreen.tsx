@@ -18,7 +18,7 @@ const OneScreen: React.FC = () => {
 
   return ( 
     <ImageBackground
-      source={require('../../assets/img/back1.jpg')}
+      source={require('../../assets/img/back3.jpg')}
       style={styles.container}
     >
       <View style={styles.overlay}>
@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
   },
   overlay: {
     flex: 1,
-    backgroundColor: 'rgba(0,0,0,0.1)',
+    backgroundColor: 'rgba(0,200,100,0.5)',
   },
   contentContainer: {
     flex: 1,
@@ -57,10 +57,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     padding: 30,
+    
   },
   textoTitulo: {
+    paddingTop: 50,
     fontWeight: 'bold',
-    color: 'brown',
+    color: 'white',
+    textAlign: 'center',
+    fontSize: 24,
   },
   containerButton: {
     flexDirection: 'row',

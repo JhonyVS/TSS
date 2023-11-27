@@ -202,11 +202,11 @@ const styles = StyleSheet.create({
   },
   cellTextMin: {
     textAlign: 'center',
-    fontSize: 12,
+    fontSize: 16,
   },
   cellTextMax: {
     textAlign: 'center',
-    fontSize: 14,
+    fontSize: 20,
     fontWeight: 'bold',
   },
   input: {

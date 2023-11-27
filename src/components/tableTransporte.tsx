@@ -30,7 +30,7 @@ const TableTransporte = () => {
         <View style={[styles.cell, styles.quarterColumn]}>
         <TextInput
           style={styles.input}
-          value={'4'}
+          value={'4.0'}
         />
         </View>
         <View style={[styles.cell, styles.quarterColumn]}>
