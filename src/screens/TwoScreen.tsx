@@ -7,13 +7,13 @@ import { useNavigation } from '@react-navigation/native'; // Importa useNavigati
 import { StackNavigationProp } from '@react-navigation/stack';
 import { RootStackParamList } from '../RootStackParamList';
 
-type oneScreenProp = StackNavigationProp<RootStackParamList, 'OneScreen'>;
+type resultsScreenProp = StackNavigationProp<RootStackParamList, 'ResultsScreen'>;
 const TwoScreen: React.FC = () => {
-  const navigation = useNavigation<oneScreenProp>(); // Obtiene la función de navegación
+  const navigation = useNavigation<resultsScreenProp>(); // Obtiene la función de navegación
 
   const handleButtonPress = () => { 
     // Navega a la siguiente pantalla al presionar el botón
-    navigation.navigate('OneScreen'); // Reemplaza 'NextScreen' con el nombre real de tu siguiente pantalla
+    navigation.navigate('ResultsScreen'); // Reemplaza 'NextScreen' con el nombre real de tu siguiente pantalla
   };
 
   return (
@@ -24,7 +24,7 @@ const TwoScreen: React.FC = () => {
         <TableTransporte/>
       <StatusBar style="auto" />
       <View style={styles.containerButton}>
-        <Button title= 'Siguiente' onPress={handleButtonPress}/> 
+        <Button title= 'Simular' onPress={handleButtonPress}/> 
       </View>
       <View style = {styles.containerFooter}>
       <StatusBar style="auto" />
