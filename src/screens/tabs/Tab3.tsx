@@ -1,20 +1,9 @@
 import React from 'react';
 import { View, Text, StyleSheet, ImageBackground, ScrollView, TextInput } from 'react-native';
+import LineChartExample from './LineChartExample';
 import { Produccion } from '../../models/produccion';
+import { arreglos } from './Tab1';
 
-const diasLaborables: number = 50;
-
-const generarProduccion = (): number =>{
-  const p = new Produccion();
-  return p.getProduccionDiaria(Math.random());
-}
-const generarTransporte = (): number =>{
-  const p = new Produccion();
-  return Number(p.getToneladasCamion(Math.random()).toFixed(2));
-}
-
-export const prodsArray = [];
-export const camsArray = [];
 
 
 const Tab3: React.FC = () => {
@@ -27,59 +16,14 @@ const Tab3: React.FC = () => {
     >
       <View style={styles.overlay}>
         <View style={styles.container}>
-          <View style={styles.titulo}>
-            <Text style={styles.textoTitulo}>SIMULACION</Text>
-          </View>
-          
-          <ScrollView>
-            <View style={styles.row}>
-              <View style={[styles.cell, styles.thirdColumn]}>
-                <Text style={styles.cellTextMax}>Costo Alquiler /T.</Text>
-              </View>
-              <View style={[styles.cell, styles.thirdColumn]}>
-                <Text style={styles.cellTextMax}>Costo camion nuevo</Text>
-              </View>
-              <View style={[styles.cell, styles.thirdColumn]}>
-                <Text style={styles.cellTextMax}>Dias laborables /año</Text>
-              </View>
-            </View>
-            <View style={styles.row}>
-              <View style={[styles.cell, styles.thirdColumn]}>
-                <TextInput
-                  style={styles.input}
-                  value={'100'}
-                />
-              </View>
-              <View style={[styles.cell, styles.thirdColumn]}>
-                <TextInput
-                  style={styles.input}
-                  value={'1300000'}
-                />
-              </View>
-              <View style={[styles.cell, styles.thirdColumn]}>
-                <TextInput
-                  style={styles.input}
-                  value={diasLaborables+''}
-                />
-              </View>
-            </View>
-            
-            <View style={styles.row}>
-              <View style={[styles.cell, styles.quarterColumn]}>
-                <Text style={styles.cellTextMax}>P./dia</Text>
-              </View>
-              <View style={[styles.cell, styles.quarterColumn]}>
-                <Text style={styles.cellTextMax}>C.T./dia</Text>
-              </View>
-              <View style={[styles.cell, styles.quarterColumn]}>
-                <Text style={styles.cellTextMax}>Cam. N.</Text>
-              </View>
-              <View style={[styles.cell, styles.quarterColumn]}>
-                <Text style={styles.cellTextMax}>C.A./T</Text>
-              </View>
+            <View style={styles.titulo}>
+              <Text style={styles.textoTitulo}>GRAFICOS</Text>
             </View>
 
-          </ScrollView>
+            <View>
+              <Text style={styles.cellTextMax}>Produccion y camiones</Text>
+                <LineChartExample data1={arreglos.prodsArray} data2={arreglos.camsArray} />
+              </View>
 
         </View>
       </View>
@@ -144,7 +88,7 @@ const styles = StyleSheet.create({
   titulo: {
     alignItems: 'center',
     justifyContent: 'center',
-    padding: 30,
+    padding: 0,
     
   },
   textoTitulo: {

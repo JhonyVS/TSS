@@ -16,8 +16,11 @@ const generarAleatorio=(): number=>{
   return Math.random();
 }
 
-export const prodsArray = [];
-export const camsArray = [];
+export const arreglos = {
+  prodsArray: [],
+  camsArray: [],
+}
+
 
 
 const generarTabla = () => {
@@ -27,9 +30,9 @@ const generarTabla = () => {
     let p1 = generarAleatorio();
     let p2 = generarAleatorio();
     let prods = generarProduccion(p1);
-    prodsArray.push(prods);
-    let cams = Number(generarTransporte(p2)).toFixed(0);
-    camsArray.push(cams);
+    arreglos.prodsArray.push(prods);
+    let cams = generarTransporte(p2);
+    arreglos.camsArray.push(cams);
     textViews.push(
       <View style={styles.row} key={i}>
         <View style={[styles.cell, styles.quarterColumn]}>
@@ -42,7 +45,7 @@ const generarTabla = () => {
           <Text style={styles.cellTextMin}> {Number(p2).toFixed(2)}</Text>
         </View>
         <View style={[styles.cell, styles.quarterColumn]}>
-          <Text style={styles.cellTextMin}> {cams}</Text>
+          <Text style={styles.cellTextMin}> {Number(cams).toFixed(2)}</Text>
         </View>
       </View>
     );

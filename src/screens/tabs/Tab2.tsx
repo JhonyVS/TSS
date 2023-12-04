@@ -1,22 +1,44 @@
 import React from 'react';
-import { View, Text, StyleSheet, ImageBackground, ScrollView, TextInput } from 'react-native';
-import { Produccion } from '../../models/produccion';
+import { View, Text, StyleSheet, ImageBackground, } from 'react-native';
+import { arreglos } from './Tab1';
 
-const diasLaborables: number = 50;
+const costoCamionExtra:number = 100;
 
-
-const p = new Produccion();
-
-const generarProduccion = (nro : number): number =>{
-  return p.getProduccionDiaria(nro);
+var promedioProds = ():number =>{
+  let index = 0;
+  let suma=0;
+    for ( index ; index < arreglos.prodsArray.length; index++) {
+      suma = suma+arreglos.prodsArray[index];
+    }
+    return Number(suma/index);
 }
-const generarTransporte = (nro : number): number =>{
-  return Number(p.getToneladasCamion(nro).toFixed(2));
+var promedioCams = ():number =>{
+  let index:number = 0;
+  let promedio:number=0;
+    for ( index ; index < arreglos.camsArray.length; index++) {
+      promedio = promedio+arreglos.camsArray[index];
+    }
+    return Number(promedio/index);
+  }
+var promedioCamionesProduccion = () : number => { 
+  return promedioProds() / promedioCams();
 }
-const generarAleatorio=(): number=>{
-  return Math.random();
-}
+var costosCamsExtra = ():number =>{
+    let costos:number = 0;
+    let camiones : number = Number(Number(promedioCamionesProduccion()).toFixed(0));
+    let saldo = 0;
+    for (let index = 0; index < arreglos.camsArray.length; index++) {
+      let prodDia = arreglos.prodsArray[index];
+      let camsDia = arreglos.camsArray[index];
+      saldo = (prodDia/camsDia) - camiones;
+      if( saldo > 0){
+        costos = costos + saldo*costoCamionExtra;
+      }
+    }
+    return costos;
+  }
 
+costosCamsExtra();
 
 const Tab2: React.FC = () => {
 
@@ -29,10 +51,10 @@ const Tab2: React.FC = () => {
       <View style={styles.overlay}>
         <View style={styles.container}>
           <View style={styles.titulo}>
-            <Text style={styles.textoTitulo}>SIMULACION</Text>
+            <Text style={styles.textoTitulo}>RESULTADOS</Text>
           </View>
           
-          <ScrollView>
+          <View>
             <View style={styles.row}>
               <View style={[styles.cell, styles.thirdColumn]}>
                 <Text style={styles.cellTextMax}>Costo Alquiler /T.</Text>
@@ -44,44 +66,73 @@ const Tab2: React.FC = () => {
                 <Text style={styles.cellTextMax}>Dias laborables /año</Text>
               </View>
             </View>
+
             <View style={styles.row}>
               <View style={[styles.cell, styles.thirdColumn]}>
-                <TextInput
-                  style={styles.input}
-                  value={'100'}
-                />
+                <Text style={styles.cellTextBordered}>100</Text>
               </View>
               <View style={[styles.cell, styles.thirdColumn]}>
-                <TextInput
-                  style={styles.input}
-                  value={'1300000'}
-                />
+                <Text style={styles.cellTextBordered}>1.300.000</Text>
               </View>
               <View style={[styles.cell, styles.thirdColumn]}>
-                <TextInput
-                  style={styles.input}
-                  value={diasLaborables+''}
-                />
+                <Text style={styles.cellTextBordered}>250</Text>
               </View>
             </View>
             
             <View style={styles.row}>
-              <View style={[styles.cell, styles.quarterColumn]}>
-                <Text style={styles.cellTextMax}>P./dia</Text>
+              <View style={[styles.cell, styles.thirdColumn]}>
+                <Text style={styles.cellTextMax}>Promedio Produccion/dia</Text>
               </View>
-              <View style={[styles.cell, styles.quarterColumn]}>
-                <Text style={styles.cellTextMax}>C.T./dia</Text>
+              <View style={[styles.cell, styles.thirdColumn]}>
+                <Text style={styles.cellTextMax}>Promedio Camiones/Ton.</Text>
               </View>
-              <View style={[styles.cell, styles.quarterColumn]}>
-                <Text style={styles.cellTextMax}>Cam. N.</Text>
-              </View>
-              <View style={[styles.cell, styles.quarterColumn]}>
-                <Text style={styles.cellTextMax}>C.A./T</Text>
+              <View style={[styles.cell, styles.thirdColumn]}>
+                <Text style={styles.cellTextMax}>Promedio Camiones N.</Text>
               </View>
             </View>
 
+            <View style={styles.row}>
+              <View style={[styles.cell, styles.thirdColumn]}>
+                <Text style={styles.cellTextBordered}>{promedioProds()+''}</Text>
+              </View>
+              <View style={[styles.cell, styles.thirdColumn]}>
+                <Text style={styles.cellTextBordered}>{Number(promedioCams()).toFixed(2)+''}</Text>
+              </View>
+              <View style={[styles.cell, styles.thirdColumn]}>
+                <Text style={styles.cellTextBordered}>{Number(promedioCamionesProduccion()).toFixed(2)}</Text>
+              </View>
+            </View>
 
-          </ScrollView>
+              
+                <View style={styles.titulo}>
+                  <Text style={styles.textoTitulo}>CONCLUCIONES</Text>
+                </View>
+              
+              <View style={styles.row}>
+              <View style={[styles.cell, styles.thirdColumn]}>
+                <Text style={styles.cellTextMax}>Total produccion anual</Text>
+              </View>
+              <View style={[styles.cell, styles.thirdColumn]}>
+                <Text style={styles.cellTextMax}>Camiones necesarios</Text>
+              </View>
+              <View style={[styles.cell, styles.thirdColumn]}>
+                <Text style={styles.cellTextMax}>Costo de alquiler adicional</Text>
+              </View>
+            </View>
+
+            <View style={styles.row}>
+              <View style={[styles.cell, styles.thirdColumn]}>
+                <Text style={styles.cellTextBordered}>{Number(promedioProds()* 250).toFixed(2)}</Text>
+              </View>
+              <View style={[styles.cell, styles.thirdColumn]}>
+                <Text style={styles.cellTextBordered}>{Number(promedioCamionesProduccion()).toFixed(0)+ ''}</Text>
+              </View>
+              <View style={[styles.cell, styles.thirdColumn]}>
+                <Text style={styles.cellTextBordered}>{Number(costosCamsExtra()).toFixed(2)}</Text>
+              </View>
+            </View>
+
+          </View>
 
         </View>
       </View>
@@ -130,6 +181,14 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: 'bold',
   },
+  cellTextBordered: {
+    textAlign: 'center',
+    fontSize: 16,
+    fontWeight: 'bold',
+    borderWidth: 0.7,
+    //borderBlockColor: '#000',
+    //borderColor: "thistle",
+  },
 
   container: {
     flex: 1,
@@ -146,8 +205,7 @@ const styles = StyleSheet.create({
   titulo: {
     alignItems: 'center',
     justifyContent: 'center',
-    padding: 30,
-    
+    padding: 0,
   },
   textoTitulo: {
     paddingTop: 50,
