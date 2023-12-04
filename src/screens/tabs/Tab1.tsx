@@ -69,13 +69,13 @@ const Tab1: React.FC = () => {
           <ScrollView>
             <View style={styles.row}>
               <View style={[styles.cell, styles.thirdColumn]}>
-                <Text style={styles.cellTextMax}>Costo Alquiler /T.</Text>
+                <Text style={styles.cellTextMax}>Costo Alquiler/Tonelada</Text>
               </View>
               <View style={[styles.cell, styles.thirdColumn]}>
                 <Text style={styles.cellTextMax}>Costo camion nuevo</Text>
               </View>
               <View style={[styles.cell, styles.thirdColumn]}>
-                <Text style={styles.cellTextMax}>Dias laborables /año</Text>
+                <Text style={styles.cellTextMax}>Dias laborables/año</Text>
               </View>
             </View>
             <View style={styles.row}>
@@ -101,16 +101,16 @@ const Tab1: React.FC = () => {
             
             <View style={styles.row}>
               <View style={[styles.cell, styles.quarterColumn]}>
-                <Text style={styles.cellTextMax}>P. Prod.</Text>
+                <Text style={styles.cellTextMax}>Probabilidad Produccion</Text>
               </View>
               <View style={[styles.cell, styles.quarterColumn]}>
                 <Text style={styles.cellTextMax}>Produccion</Text>
               </View>
               <View style={[styles.cell, styles.quarterColumn]}>
-                <Text style={styles.cellTextMax}>P. Ton/Cam</Text>
+                <Text style={styles.cellTextMax}>Probabilidad Tonelada/Camion</Text>
               </View>
               <View style={[styles.cell, styles.quarterColumn]}>
-                <Text style={styles.cellTextMax}>Ton/Cam</Text>
+                <Text style={styles.cellTextMax}>Tonelada/Camion</Text>
               </View>
             </View>
             {/** TABLA GENERADA AUTOMATICAMENTE */}
@@ -174,8 +174,8 @@ const styles = StyleSheet.create({
   },
   cellTextMax: {
     textAlign: 'center',
-    fontSize: 16,
-    fontWeight: 'bold',
+    fontSize: 12,
+    //fontWeight: 'bold',
   },
 
   container: {

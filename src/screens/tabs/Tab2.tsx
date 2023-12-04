@@ -57,13 +57,13 @@ const Tab2: React.FC = () => {
           <View>
             <View style={styles.row}>
               <View style={[styles.cell, styles.thirdColumn]}>
-                <Text style={styles.cellTextMax}>Costo Alquiler /T.</Text>
+                <Text style={styles.cellTextMax}>Costo Alquiler/Tonelada</Text>
               </View>
               <View style={[styles.cell, styles.thirdColumn]}>
                 <Text style={styles.cellTextMax}>Costo camion nuevo</Text>
               </View>
               <View style={[styles.cell, styles.thirdColumn]}>
-                <Text style={styles.cellTextMax}>Dias laborables /año</Text>
+                <Text style={styles.cellTextMax}>Dias laborables/año</Text>
               </View>
             </View>
 
@@ -84,10 +84,10 @@ const Tab2: React.FC = () => {
                 <Text style={styles.cellTextMax}>Promedio Produccion/dia</Text>
               </View>
               <View style={[styles.cell, styles.thirdColumn]}>
-                <Text style={styles.cellTextMax}>Promedio Camiones/Ton.</Text>
+                <Text style={styles.cellTextMax}>Promedio Camiones/Tonelada</Text>
               </View>
               <View style={[styles.cell, styles.thirdColumn]}>
-                <Text style={styles.cellTextMax}>Promedio Camiones N.</Text>
+                <Text style={styles.cellTextMax}>Promedio Camiones necesarios</Text>
               </View>
             </View>
 
