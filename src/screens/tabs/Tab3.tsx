@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet, ImageBackground, ScrollView, TextInput } from 'react-native';
-import { Produccion } from '../models/produccion';
+import { Produccion } from '../../models/produccion';
 
 const diasLaborables: number = 50;
 
@@ -17,41 +17,12 @@ export const prodsArray = [];
 export const camsArray = [];
 
 
-const generarTabla = () => {
-  const textViews = [];
-  
-  for (let i = 0; i < diasLaborables; i++) {
-    let prods = generarProduccion();
-    prodsArray.push(prods);
-    let cams = Number(generarTransporte());
-    camsArray.push(cams);
-    let camsNecesarios = Number(prods/cams).toFixed(0);
-    textViews.push(
-      <View style={styles.row} key={i}>
-        <View style={[styles.cell, styles.quarterColumn]}>
-          <Text style={styles.cellTextMin}> {prods}</Text>
-        </View> 
-        <View style={[styles.cell, styles.quarterColumn]}>
-          <Text style={styles.cellTextMin}> {cams}</Text>
-        </View>
-        <View style={[styles.cell, styles.quarterColumn]}>
-          <Text style={styles.cellTextMin}> {camsNecesarios}</Text>
-        </View>
-        <View style={[styles.cell, styles.quarterColumn]}>
-          <Text style={styles.cellTextMin}> {camsNecesarios}</Text>
-        </View>
-      </View>
-    );
-  }
-  return textViews;
-};
-
-const ResultsScreen: React.FC = () => {
+const Tab3: React.FC = () => {
 
   return ( 
 
     <ImageBackground
-      source={require('../../assets/img/back3.jpg')}
+      source={require('../../../assets/img/back3.jpg')}
       style={styles.container}
     >
       <View style={styles.overlay}>
@@ -107,8 +78,6 @@ const ResultsScreen: React.FC = () => {
                 <Text style={styles.cellTextMax}>C.A./T</Text>
               </View>
             </View>
-            {/** TABLA GENERADA AUTOMATICAMENTE */}
-            {generarTabla()}
 
           </ScrollView>
 
@@ -175,7 +144,7 @@ const styles = StyleSheet.create({
   titulo: {
     alignItems: 'center',
     justifyContent: 'center',
-    padding: 0,
+    padding: 30,
     
   },
   textoTitulo: {
@@ -198,4 +167,4 @@ const styles = StyleSheet.create({
   },
 });
   
-export default ResultsScreen;
+export default Tab3;

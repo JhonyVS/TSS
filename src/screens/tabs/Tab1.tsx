@@ -1,16 +1,19 @@
 import React from 'react';
 import { View, Text, StyleSheet, ImageBackground, ScrollView, TextInput } from 'react-native';
-import { Produccion } from '../models/produccion';
+import { Produccion } from '../../models/produccion';
 
-const diasLaborables: number = 50;
+const diasLaborables: number = 250;
 
-const generarProduccion = (): number =>{
-  const p = new Produccion();
-  return p.getProduccionDiaria(Math.random());
+const p = new Produccion();
+
+const generarProduccion = (nro : number): number =>{
+  return p.getProduccionDiaria(nro);
 }
-const generarTransporte = (): number =>{
-  const p = new Produccion();
-  return Number(p.getToneladasCamion(Math.random()).toFixed(2));
+const generarTransporte = (nro : number): number =>{
+  return p.getToneladasCamion(nro);
+}
+const generarAleatorio=(): number=>{
+  return Math.random();
 }
 
 export const prodsArray = [];
@@ -21,24 +24,25 @@ const generarTabla = () => {
   const textViews = [];
   
   for (let i = 0; i < diasLaborables; i++) {
-    let prods = generarProduccion();
+    let p1 = generarAleatorio();
+    let p2 = generarAleatorio();
+    let prods = generarProduccion(p1);
     prodsArray.push(prods);
-    let cams = Number(generarTransporte());
+    let cams = Number(generarTransporte(p2)).toFixed(0);
     camsArray.push(cams);
-    let camsNecesarios = Number(prods/cams).toFixed(0);
     textViews.push(
       <View style={styles.row} key={i}>
         <View style={[styles.cell, styles.quarterColumn]}>
-          <Text style={styles.cellTextMin}> {prods}</Text>
+          <Text style={styles.cellTextMin}> {Number(p1).toFixed(2)}</Text>
         </View> 
         <View style={[styles.cell, styles.quarterColumn]}>
+          <Text style={styles.cellTextMin}> {prods}</Text>
+        </View>
+        <View style={[styles.cell, styles.quarterColumn]}>
+          <Text style={styles.cellTextMin}> {Number(p2).toFixed(2)}</Text>
+        </View>
+        <View style={[styles.cell, styles.quarterColumn]}>
           <Text style={styles.cellTextMin}> {cams}</Text>
-        </View>
-        <View style={[styles.cell, styles.quarterColumn]}>
-          <Text style={styles.cellTextMin}> {camsNecesarios}</Text>
-        </View>
-        <View style={[styles.cell, styles.quarterColumn]}>
-          <Text style={styles.cellTextMin}> {camsNecesarios}</Text>
         </View>
       </View>
     );
@@ -46,20 +50,19 @@ const generarTabla = () => {
   return textViews;
 };
 
-const ResultsScreen: React.FC = () => {
+const Tab1: React.FC = () => {
 
   return ( 
 
     <ImageBackground
-      source={require('../../assets/img/back3.jpg')}
+      source={require('../../../assets/img/back3.jpg')}
       style={styles.container}
     >
       <View style={styles.overlay}>
         <View style={styles.container}>
-          <View style={styles.titulo}>
+        <View style={styles.titulo}>
             <Text style={styles.textoTitulo}>SIMULACION</Text>
           </View>
-          
           <ScrollView>
             <View style={styles.row}>
               <View style={[styles.cell, styles.thirdColumn]}>
@@ -95,16 +98,16 @@ const ResultsScreen: React.FC = () => {
             
             <View style={styles.row}>
               <View style={[styles.cell, styles.quarterColumn]}>
-                <Text style={styles.cellTextMax}>P./dia</Text>
+                <Text style={styles.cellTextMax}>P. Prod.</Text>
               </View>
               <View style={[styles.cell, styles.quarterColumn]}>
-                <Text style={styles.cellTextMax}>C.T./dia</Text>
+                <Text style={styles.cellTextMax}>Produccion</Text>
               </View>
               <View style={[styles.cell, styles.quarterColumn]}>
-                <Text style={styles.cellTextMax}>Cam. N.</Text>
+                <Text style={styles.cellTextMax}>P. Ton/Cam</Text>
               </View>
               <View style={[styles.cell, styles.quarterColumn]}>
-                <Text style={styles.cellTextMax}>C.A./T</Text>
+                <Text style={styles.cellTextMax}>Ton/Cam</Text>
               </View>
             </View>
             {/** TABLA GENERADA AUTOMATICAMENTE */}
@@ -123,8 +126,20 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     borderBottomWidth: 0.7,
     borderColor: '#000',
+  }, 
+  titulo: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: 0,
+    
   },
-
+  textoTitulo: {
+    paddingTop: 50,
+    fontWeight: 'bold',
+    color: 'white',
+    textAlign: 'center',
+    fontSize: 24,
+  },
   cell: {
     flex: 1,
     padding: 10,
@@ -172,19 +187,6 @@ const styles = StyleSheet.create({
     flex: 1,
     //justifyContent: 'center',
   },
-  titulo: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: 0,
-    
-  },
-  textoTitulo: {
-    paddingTop: 50,
-    fontWeight: 'bold',
-    color: 'white',
-    textAlign: 'center',
-    fontSize: 24,
-  },
   containerTabla: {
     flexDirection: 'row',
   },
@@ -198,4 +200,4 @@ const styles = StyleSheet.create({
   },
 });
   
-export default ResultsScreen;
+export default Tab1;
