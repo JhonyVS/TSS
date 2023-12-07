@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, ImageBackground, } from 'react-native';
 import { arreglos } from './Tab1';
+import { ScrollView } from 'react-native-gesture-handler';
 
 const costoCamionExtra:number = 100;
 
@@ -45,15 +46,16 @@ const Tab2: React.FC = () => {
   return ( 
 
     <ImageBackground
-      source={require('../../../assets/img/back3.jpg')}
+      source={require('../../../assets/img/back5.jpg')}
       style={styles.container}
     >
       <View style={styles.overlay}>
+        <ScrollView>
         <View style={styles.container}>
           <View style={styles.titulo}>
             <Text style={styles.textoTitulo}>RESULTADOS</Text>
           </View>
-          
+           
           <View>
             <View style={styles.row}>
               <View style={[styles.cell, styles.thirdColumn]}>
@@ -69,10 +71,10 @@ const Tab2: React.FC = () => {
 
             <View style={styles.row}>
               <View style={[styles.cell, styles.thirdColumn]}>
-                <Text style={styles.cellTextBordered}>100</Text>
+                <Text style={styles.cellTextBordered}>100 $</Text>
               </View>
               <View style={[styles.cell, styles.thirdColumn]}>
-                <Text style={styles.cellTextBordered}>1.300.000</Text>
+                <Text style={styles.cellTextBordered}>1.300.000 $</Text>
               </View>
               <View style={[styles.cell, styles.thirdColumn]}>
                 <Text style={styles.cellTextBordered}>250</Text>
@@ -93,10 +95,10 @@ const Tab2: React.FC = () => {
 
             <View style={styles.row}>
               <View style={[styles.cell, styles.thirdColumn]}>
-                <Text style={styles.cellTextBordered}>{promedioProds()+''}</Text>
+                <Text style={styles.cellTextBordered}>{Number(promedioProds()).toFixed(2)} t.</Text>
               </View>
               <View style={[styles.cell, styles.thirdColumn]}>
-                <Text style={styles.cellTextBordered}>{Number(promedioCams()).toFixed(2)+''}</Text>
+                <Text style={styles.cellTextBordered}>{Number(promedioCams()).toFixed(2)} t.</Text>
               </View>
               <View style={[styles.cell, styles.thirdColumn]}>
                 <Text style={styles.cellTextBordered}>{Number(promedioCamionesProduccion()).toFixed(2)}</Text>
@@ -104,37 +106,50 @@ const Tab2: React.FC = () => {
             </View>
 
               
-                <View style={styles.titulo}>
-                  <Text style={styles.textoTitulo}>CONCLUCIONES</Text>
+            <View style={styles.titulo}>
+                  <Text style={styles.textoTitulo}>CONCLUSIONES</Text>
+                </View>
+                <View>
+                  <Text style={styles.texto}>A partir de los resultados obtenidos se puede concluir la siguiente información:</Text>
                 </View>
               
               <View style={styles.row}>
               <View style={[styles.cell, styles.thirdColumn]}>
-                <Text style={styles.cellTextMax}>Total produccion anual</Text>
+                <Text style={styles.cellTextMax}>Total producción anual</Text>
               </View>
               <View style={[styles.cell, styles.thirdColumn]}>
                 <Text style={styles.cellTextMax}>Camiones necesarios</Text>
               </View>
               <View style={[styles.cell, styles.thirdColumn]}>
-                <Text style={styles.cellTextMax}>Costo de alquiler adicional</Text>
+                <Text style={styles.cellTextMax}>Costo de alquiler adicional</Text> 
               </View>
-            </View>
-
+            </View> 
             <View style={styles.row}>
               <View style={[styles.cell, styles.thirdColumn]}>
-                <Text style={styles.cellTextBordered}>{Number(promedioProds()* 250).toFixed(2)}</Text>
+                <Text style={styles.cellTextBordered}>{Number(promedioProds()* 250).toFixed(2)} t.</Text>
               </View>
               <View style={[styles.cell, styles.thirdColumn]}>
-                <Text style={styles.cellTextBordered}>{Number(promedioCamionesProduccion()).toFixed(0)+ ''}</Text>
+                <Text style={styles.cellTextBordered}>{Number(promedioCamionesProduccion()-1).toFixed(0)}</Text>
               </View>
               <View style={[styles.cell, styles.thirdColumn]}>
-                <Text style={styles.cellTextBordered}>{Number(costosCamsExtra()).toFixed(2)}</Text>
+                <Text style={styles.cellTextBordered}>{Number(costosCamsExtra()).toFixed(2)} $</Text>
+              </View>
+            </View>
+            <View style={styles.row}>
+              <View>
+                <Text style={styles.texto}>La simulación recomienda comprar {Number(promedioCamionesProduccion()-1).toFixed(0)} </Text>
+              </View>
+            </View>
+            <View style={styles.row}>
+              <View>
+                <Text style={styles.texto}>El costo adicional anual por el alquiler de camiones sera de: {Number(costosCamsExtra()).toFixed(2)}$ </Text>
               </View>
             </View>
 
           </View>
 
         </View>
+        </ScrollView>
       </View>
     </ImageBackground>
   );
@@ -196,7 +211,7 @@ const styles = StyleSheet.create({
   },
   overlay: {
     flex: 1,
-    backgroundColor: 'rgba(0,200,100,0.5)',
+    backgroundColor: 'rgba(50,80,50,0.2)',
   },
   contentContainer: {
     flex: 1,
@@ -205,14 +220,20 @@ const styles = StyleSheet.create({
   titulo: {
     alignItems: 'center',
     justifyContent: 'center',
-    padding: 0,
+    //paddingBottom:20,
   },
   textoTitulo: {
     paddingTop: 50,
     fontWeight: 'bold',
-    color: 'white',
+    color: 'black',
     textAlign: 'center',
     fontSize: 24,
+  },
+  texto: {
+    color: 'black',
+    textAlign: 'auto',
+    padding: 10,
+    fontSize: 14,
   },
   containerTabla: {
     flexDirection: 'row',

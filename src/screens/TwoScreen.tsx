@@ -24,7 +24,7 @@ const TwoScreen: React.FC = () => {
 
   return (
     <ImageBackground
-      source={require('../../assets/img/back3.jpg')}
+      source={require('../../assets/img/back4.jpg')}
       style={styles.container}
     >
       <View style={styles.overlay}>
@@ -40,11 +40,8 @@ const TwoScreen: React.FC = () => {
       <View style={styles.containerButton}>
         <Button title= 'Volver' onPress={handleButtonPressBack}/> 
       </View>
-      <View style = {styles.containerFooter}>
-      <StatusBar style="auto" />
-        <FooterCustom/>
-      </View> 
-    </View>
+
+      </View>
     </View>
     </ImageBackground>
   );
@@ -57,7 +54,7 @@ const styles = StyleSheet.create({
   },
   overlay: {
     flex: 1,
-    backgroundColor: 'rgba(0,200,100,0.5)',
+    backgroundColor: 'rgba(50,50,50,0.1)',
   },
   contentContainer: {
     flex: 1,
@@ -72,7 +69,7 @@ const styles = StyleSheet.create({
   textoTitulo: {
     paddingTop: 50,
     fontWeight: 'bold',
-    color: 'white',
+    color: 'black',
     textAlign: 'center',
     fontSize: 24,
   },
@@ -81,17 +78,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignSelf: 'center',
     marginTop: 20,
-  },
-  containerFooter: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    position: 'absolute',
-    bottom: 0,
-    left: 0,
-    right: 0,
-    //backgroundColor: '#fff', // Optional: Set background color if needed
-    paddingVertical: 20, // Optional: Add padding for visual appeal
   },
 });
 

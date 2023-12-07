@@ -1,8 +1,11 @@
 import React from 'react';
 import { View, Text, StyleSheet, ImageBackground, ScrollView, TextInput } from 'react-native';
-import LineChartExample from './LineChartExample';
-import { Produccion } from '../../models/produccion';
+import LineChartExample from './charts/LineChartExample';
 import { arreglos } from './Tab1';
+import PieChartExample from './charts/PieChartExample';
+
+
+const valores = [10 , 15 , 30 , 35, 8 , 2 ];
 
 
 
@@ -11,19 +14,23 @@ const Tab3: React.FC = () => {
   return ( 
 
     <ImageBackground
-      source={require('../../../assets/img/back3.jpg')}
+      source={require('../../../assets/img/back5.jpg')}
       style={styles.container}
     >
       <View style={styles.overlay}>
         <View style={styles.container}>
             <View style={styles.titulo}>
-              <Text style={styles.textoTitulo}>GRAFICOS</Text>
+              <Text style={styles.textoTitulo}>GRÁFICOS</Text>
             </View>
-
+ 
             <View>
-              <Text style={styles.cellTextMax}>Produccion y camiones</Text>
+                <Text style={styles.cellTextMax}>Distribución de la producción</Text>
+                  <PieChartExample valores={valores} />
+            </View>
+            <View>
+              <Text style={styles.cellTextMax}>Producción y camiones</Text>
                 <LineChartExample data1={arreglos.prodsArray} data2={arreglos.camsArray} />
-              </View>
+            </View>
 
         </View>
       </View>
@@ -69,7 +76,7 @@ const styles = StyleSheet.create({
   },
   cellTextMax: {
     textAlign: 'center',
-    fontSize: 16,
+    fontSize: 26,
     fontWeight: 'bold',
   },
 
@@ -79,7 +86,7 @@ const styles = StyleSheet.create({
   },
   overlay: {
     flex: 1,
-    backgroundColor: 'rgba(0,200,100,0.5)',
+    backgroundColor: 'rgba(50,50,150,0.2)',
   },
   contentContainer: {
     flex: 1,
@@ -94,7 +101,7 @@ const styles = StyleSheet.create({
   textoTitulo: {
     paddingTop: 50,
     fontWeight: 'bold',
-    color: 'white',
+    color: 'black',
     textAlign: 'center',
     fontSize: 24,
   },

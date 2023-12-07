@@ -3,9 +3,9 @@ import { View, Text, StyleSheet, Button, ImageBackground } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import TableProduccion from '../components/tableProduccion';
 import { StatusBar } from 'expo-status-bar';
-import FooterCustom from '../components/FooterCustom';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { RootStackParamList } from '../RootStackParamList';
+import { ScrollView } from 'react-native-gesture-handler';
 
 type TwoScreenProp = StackNavigationProp<RootStackParamList, 'TwoScreen'>;
 
@@ -18,10 +18,11 @@ const OneScreen: React.FC = () => {
 
   return ( 
     <ImageBackground
-      source={require('../../assets/img/back3.jpg')}
+      source={require('../../assets/img/back4.jpg')}
       style={styles.container}
     >
       <View style={styles.overlay}>
+        <ScrollView>
         <View style={styles.contentContainer}>
           <View style={styles.titulo}>
             <Text style={styles.textoTitulo}>PRODUCCION DIARIA DE LA FABRICA</Text>
@@ -30,11 +31,9 @@ const OneScreen: React.FC = () => {
           <View style={styles.containerButton}>
             <Button title="Siguiente" onPress={handleButtonPress} />
           </View>
-          <View style={styles.containerFooter}>
-            <FooterCustom />
-          </View>
+          
         </View>
-        <StatusBar style="auto" />
+        </ScrollView>
       </View>
     </ImageBackground>
   );
@@ -47,7 +46,7 @@ const styles = StyleSheet.create({
   },
   overlay: {
     flex: 1,
-    backgroundColor: 'rgba(0,200,100,0.5)',
+    backgroundColor: 'rgba(50,50,50,0.1)',
   },
   contentContainer: {
     flex: 1,
@@ -62,7 +61,7 @@ const styles = StyleSheet.create({
   textoTitulo: {
     paddingTop: 50,
     fontWeight: 'bold',
-    color: 'white',
+    color: 'black',
     textAlign: 'center',
     fontSize: 24,
   },
@@ -71,17 +70,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignSelf: 'center',
     marginTop: 20,
-  },
-  containerFooter: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    position: 'absolute',
-    bottom: 0,
-    left: 0,
-    right: 0,
-    //backgroundColor: '#fff', // Optional: Set background color if needed
-    paddingVertical: 20, // Optional: Add padding for visual appeal
   },
 });
 

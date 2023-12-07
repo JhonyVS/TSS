@@ -1,7 +1,7 @@
 
 
-
 export class Produccion {
+
 
     public getProduccionDiaria(prob:number): number{
 

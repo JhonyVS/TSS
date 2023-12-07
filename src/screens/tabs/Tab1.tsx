@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet, ImageBackground, ScrollView, TextInput } from 'react-native';
 import { Produccion } from '../../models/produccion';
 
-const diasLaborables: number = 250;
+const diasLaborables: number = 25;
 
 const p = new Produccion();
 
@@ -39,13 +39,13 @@ const generarTabla = () => {
           <Text style={styles.cellTextMin}> {Number(p1).toFixed(2)}</Text>
         </View> 
         <View style={[styles.cell, styles.quarterColumn]}>
-          <Text style={styles.cellTextMin}> {prods}</Text>
+          <Text style={styles.cellTextMin}> {prods} t.</Text>
         </View>
         <View style={[styles.cell, styles.quarterColumn]}>
           <Text style={styles.cellTextMin}> {Number(p2).toFixed(2)}</Text>
         </View>
         <View style={[styles.cell, styles.quarterColumn]}>
-          <Text style={styles.cellTextMin}> {Number(cams).toFixed(2)}</Text>
+          <Text style={styles.cellTextMin}> {Number(cams).toFixed(2)} t.</Text>
         </View>
       </View>
     );
@@ -58,7 +58,7 @@ const Tab1: React.FC = () => {
   return ( 
 
     <ImageBackground
-      source={require('../../../assets/img/back3.jpg')}
+      source={require('../../../assets/img/back5.jpg')}
       style={styles.container}
     >
       <View style={styles.overlay}>
@@ -82,13 +82,13 @@ const Tab1: React.FC = () => {
               <View style={[styles.cell, styles.thirdColumn]}>
                 <TextInput
                   style={styles.input}
-                  value={'100'}
+                  value={'100 $'}
                 />
               </View>
               <View style={[styles.cell, styles.thirdColumn]}>
                 <TextInput
                   style={styles.input}
-                  value={'1300000'}
+                  value={'1.300.000 $'}
                 />
               </View>
               <View style={[styles.cell, styles.thirdColumn]}>
@@ -139,7 +139,7 @@ const styles = StyleSheet.create({
   textoTitulo: {
     paddingTop: 50,
     fontWeight: 'bold',
-    color: 'white',
+    color: 'black',
     textAlign: 'center',
     fontSize: 24,
   },
@@ -170,11 +170,11 @@ const styles = StyleSheet.create({
   cellTextMin: {
     textAlign: 'center',
     justifyContent: 'center',
-    fontSize: 12,
+    fontSize: 13,
   },
   cellTextMax: {
     textAlign: 'center',
-    fontSize: 12,
+    fontSize: 13,
     //fontWeight: 'bold',
   },
 
@@ -184,7 +184,7 @@ const styles = StyleSheet.create({
   },
   overlay: {
     flex: 1,
-    backgroundColor: 'rgba(0,200,100,0.5)',
+    backgroundColor: 'rgba(60,50,50,0.1)',
   },
   contentContainer: {
     flex: 1,

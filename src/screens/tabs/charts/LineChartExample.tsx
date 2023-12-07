@@ -1,8 +1,11 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import { LineChart } from 'react-native-chart-kit';
+import { Dimensions } from "react-native";
+const screenWidth = Dimensions.get("window").width -20;
 
 const LineChartExample = ({ data1, data2 }) => {
+  const c = data2.map(p=> p*13);
   const chartData = {
     labels: [], // Puedes personalizar las etiquetas según tus datos
     datasets: [
@@ -11,20 +14,20 @@ const LineChartExample = ({ data1, data2 }) => {
         color: (opacity = 1) => `rgba(134, 65, 244, ${opacity})`, // Color de la línea para data1
       },
       {
-        data: data2,
+        data: c,
         color: (opacity = 1) => `rgba(67, 156, 145, ${opacity})`, // Color de la línea para data2
       },
     ],
   };
 
   const chartConfig = {
-    backgroundGradientFrom: 'rgba(255, 255, 255, 0.1)', // Fondo transparente
-    backgroundGradientTo: 'rgba(255, 255, 255, 0.1)',
+    backgroundGradientFrom: 'rgba(255, 255, 255, 0.2)', // Fondo transparente
+    backgroundGradientTo: 'rgba(255, 255, 255, 0.2)',
   
     decimalPlaces: 0,
-    color: (opacity = 0.2) => `rgba(0, 0, 0, ${opacity})`,
+    color: (opacity = 0.5) => `rgba(0, 0, 0, ${opacity})`,
     style: {
-      borderRadius: 16,
+      borderRadius: 10,
     },
   };
 
@@ -33,9 +36,10 @@ const LineChartExample = ({ data1, data2 }) => {
       <LineChart
         style={styles.chart}
         data={chartData}
-        width={350}
-        height={220}
-        yAxisLabel=""
+        width={screenWidth}
+        height={200}
+        yAxisLabel="T. "
+        //transparent={true}
         chartConfig={chartConfig}
       />
     </View>

@@ -5,7 +5,7 @@ const FooterCustom = () => {
   return (
     <View >
       <Text style={styles.text}>
-          Version 001 G7
+          GRUPO 7
       </Text>
     </View>
   );
@@ -14,7 +14,13 @@ const FooterCustom = () => {
 const styles = StyleSheet.create({
   text: {
     fontStyle: 'italic',
-    //fontFamily: 'arial',
+    fontWeight: 'bold',
+    textAlign: 'center',
+    shadowColor: 'red',
+    textShadowColor: 'red',
+    fontSize: 17,
+    padding:5,
+    shadowOpacity: 0.5,
     
   },
 });
