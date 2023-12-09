@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet, ImageBackground, ScrollView, TextInput } from 'react-native';
 import { Produccion } from '../../models/produccion';
 
-const diasLaborables: number = 25;
+const diasLaborables: number = 12;
 
 const p = new Produccion();
 
@@ -20,7 +20,6 @@ export const arreglos = {
   prodsArray: [],
   camsArray: [],
 }
-
 
 
 const generarTabla = () => {
@@ -141,7 +140,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: 'black',
     textAlign: 'center',
-    fontSize: 24,
+    fontSize: 20,
   },
   cell: {
     flex: 1,

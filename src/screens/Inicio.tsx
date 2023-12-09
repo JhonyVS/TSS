@@ -11,7 +11,7 @@ type OneScreenProp = StackNavigationProp<RootStackParamList, 'OneScreen'>;
 const MatrixComponent = () => {
   // Primera matriz de 1x2
   const matrix1 = [
-    ['Produccion tonedas por dia', 'Probabilidad'],
+    ['Produccion toneladas por dia', 'Probabilidad'],
   ];
 
   // Segunda matriz de 6x3
@@ -25,14 +25,14 @@ const MatrixComponent = () => {
   ];
 
   const matrix3 = [
-    ['Produccion tonedas por dia', 'Probabilidad'],
+    ['Produccion toneladas por dia', 'Probabilidad'],
   ];
 
   // Segunda matriz de 6x3
   const matrix4 = [
     ['4', '5.4', '0.30'],
     ['4.5', '5', '0.40'],
-    ['5', '5.5', '0.20'],
+    ['5', '5.5', '0.20'], 
     ['5.5', '6', '0.10'],
   ];
 
@@ -53,7 +53,7 @@ const MatrixComponent = () => {
       ))}
 
       {/* Separador */}
-      <View style={{ height: 2, backgroundColor: 'transparent' }} />
+      <View style={{ height: 1, backgroundColor: 'transparent' }} />
 
       {/* Matriz 2 */}
       {matrix2.map((row, rowIndex) => (
@@ -250,7 +250,7 @@ columnSeparator: {
 row2: {
      margin: 2, 
      flexDirection: 'row', 
-     height: 40, 
+     height: 30, 
      marginBottom: 2 
     },
 cellRed: {
@@ -258,7 +258,7 @@ cellRed: {
      flex: 0.5,
      //width: 50, 
      textAlign: 'center', 
-     lineHeight: 45, 
+     lineHeight: 30, 
      borderWidth: 1, 
      borderColor: 'black', 
      backgroundColor: 'white' 
@@ -268,7 +268,7 @@ cellGreen: {
      flex : 0.75,
      //width: 180, 
      textAlign: 'center', 
-     lineHeight: 45, 
+     lineHeight: 30, 
      borderWidth: 1, 
      borderColor: 'black', 
      backgroundColor: 'white' 
@@ -285,16 +285,6 @@ cellWithoutBorder: {
      textAlign: 'center', 
      lineHeight: 25 
     },
-    containerFooter: {
-        justifyContent: 'center',
-        alignItems: 'center',
-        position: 'absolute',
-        bottom: 0,
-        left: 0,
-        right: 0,
-        //backgroundColor: '#fff', // Optional: Set background color if needed
-        paddingVertical: 20, // Optional: Add padding for visual appeal
-      },
 });
 
 export default Inicio;

@@ -199,14 +199,15 @@ const styles = StyleSheet.create({
   },
   cellText: {
     textAlign: 'center',
+    fontSize: 12,
   },
   cellTextMin: {
     textAlign: 'center',
-    fontSize: 16,
+    fontSize: 14,
   },
   cellTextMax: {
     textAlign: 'center',
-    fontSize: 20,
+    fontSize: 16,
     fontWeight: 'bold',
   },
   input: {
@@ -216,6 +217,7 @@ const styles = StyleSheet.create({
     borderWidth: 0.75,
     paddingHorizontal: 5,
     textAlign: 'center'
+    
   },
 });
 

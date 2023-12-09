@@ -2,7 +2,6 @@ import React from 'react';
 import { View, Text, StyleSheet, Button, ImageBackground } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import TableProduccion from '../components/tableProduccion';
-import { StatusBar } from 'expo-status-bar';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { RootStackParamList } from '../RootStackParamList';
 import { ScrollView } from 'react-native-gesture-handler';
@@ -24,12 +23,12 @@ const OneScreen: React.FC = () => {
       <View style={styles.overlay}>
         <ScrollView>
         <View style={styles.contentContainer}>
-          <View style={styles.titulo}>
+          <View>
             <Text style={styles.textoTitulo}>PRODUCCION DIARIA DE LA FABRICA</Text>
           </View>
           <TableProduccion />
           <View style={styles.containerButton}>
-            <Button title="Siguiente" onPress={handleButtonPress} />
+            <Button title ='Siguiente' onPress={handleButtonPress} />
           </View>
           
         </View>
@@ -52,24 +51,17 @@ const styles = StyleSheet.create({
     flex: 1,
     //justifyContent: 'center',
   },
-  titulo: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: 30,
-    
-  },
   textoTitulo: {
-    paddingTop: 50,
+    paddingTop: 80,
     fontWeight: 'bold',
     color: 'black',
     textAlign: 'center',
-    fontSize: 24,
+    fontSize: 20,
   },
   containerButton: {
-    flexDirection: 'row',
     justifyContent: 'center',
-    alignSelf: 'center',
-    marginTop: 20,
+    margin: 20,
+    elevation: 5,
   },
 });
 

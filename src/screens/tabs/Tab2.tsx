@@ -193,7 +193,7 @@ const styles = StyleSheet.create({
   },
   cellTextMax: {
     textAlign: 'center',
-    fontSize: 16,
+    fontSize: 14,
     fontWeight: 'bold',
   },
   cellTextBordered: {
@@ -227,7 +227,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: 'black',
     textAlign: 'center',
-    fontSize: 24,
+    fontSize: 20,
   },
   texto: {
     color: 'black',

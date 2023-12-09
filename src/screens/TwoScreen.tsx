@@ -9,9 +9,11 @@ import { RootStackParamList } from '../RootStackParamList';
 
 type resultsScreenProp = StackNavigationProp<RootStackParamList, 'ResultsScreen'>;
 type resultsScreenBack = StackNavigationProp<RootStackParamList, 'OneScreen'>;
+
+
 const TwoScreen: React.FC = () => {
-  const navigation = useNavigation<resultsScreenProp>(); // Obtiene la función de navegación
-  const navigationBack = useNavigation<resultsScreenBack>(); // Obtiene la función de navegación
+const navigation = useNavigation<resultsScreenProp>(); // Obtiene la función de navegación
+const navigationBack = useNavigation<resultsScreenBack>(); // Obtiene la función de navegación
 
   const handleButtonPress = () => { 
     // Navega a la siguiente pantalla al presionar el botón
@@ -29,7 +31,7 @@ const TwoScreen: React.FC = () => {
     >
       <View style={styles.overlay}>
     <View style={styles.container}>
-      <View style={styles.titulo}>
+      <View>
           <Text style={styles.textoTitulo}>CAPACIDAD DE TRANSPORTE DE LA FABRICA</Text>
         </View>
         <TableTransporte/>
@@ -60,24 +62,17 @@ const styles = StyleSheet.create({
     flex: 1,
     //justifyContent: 'center',
   },
-  titulo: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: 30,
-    
-  },
   textoTitulo: {
-    paddingTop: 50,
+    paddingTop: 80,
     fontWeight: 'bold',
     color: 'black',
     textAlign: 'center',
-    fontSize: 24,
+    fontSize: 20,
   },
   containerButton: {
-    flexDirection: 'row',
     justifyContent: 'center',
-    alignSelf: 'center',
-    marginTop: 20,
+    margin: 20,
+    elevation: 5,
   },
 });
 

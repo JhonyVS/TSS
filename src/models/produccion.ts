@@ -1,8 +1,8 @@
 
 
+export const prodMedia = ['50-55','55-60','60-65','65-70','75-80','80-85'];
+
 export class Produccion {
-
-
     public getProduccionDiaria(prob:number): number{
 
         var res = Math.floor(Math.random()*(5+1)+50);

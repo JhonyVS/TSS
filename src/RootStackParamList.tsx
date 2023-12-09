@@ -10,6 +10,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import Tab1 from "./screens/tabs/Tab1";
 import Tab2 from "./screens/tabs/Tab2";
 import Tab3 from "./screens/tabs/Tab3";
+import Tab4 from "./screens/tabs/Tab4";
 
 export type RootStackParamList = {
   Inicio: undefined;
@@ -22,6 +23,7 @@ export type RootTabParamList = {
   Tab1: undefined;
   Tab2: undefined;
   Tab3: undefined;
+  Tab4: undefined;
 };
 
 const Stack = createStackNavigator<RootStackParamList>();
@@ -36,11 +38,13 @@ const ResultsTabs: React.FC = () => {
           let iconName;
 
           if (route.name === 'Tab1') {
-            iconName = focused ? 'calculator' : 'grid';
+            iconName = focused ? 'logo-buffer' : 'grid';
           } else if (route.name === 'Tab2') {
             iconName = focused ? 'document' : 'ios-list';
           } else if (route.name === 'Tab3') {
             iconName = focused ? 'ios-analytics' : 'podium';
+          } else if (route.name === 'Tab4') {
+            iconName = focused ? 'settings' : 'cog';
           }
 
           // Puedes devolver cualquier componente JSX como icono
@@ -51,6 +55,7 @@ const ResultsTabs: React.FC = () => {
       <Tab.Screen name="Tab1" component={Tab1} options={{ tabBarLabel: 'SIMULACION' }} />
       <Tab.Screen name="Tab2" component={Tab2} options={{ tabBarLabel: 'RESULTADOS' }}/>
       <Tab.Screen name="Tab3" component={Tab3} options={{ tabBarLabel: 'GRAFICOS' }}/>
+      <Tab.Screen name="Tab4" component={Tab4} options={{ tabBarLabel: 'OPCIONES' }}/>
     </Tab.Navigator>
   );
 };

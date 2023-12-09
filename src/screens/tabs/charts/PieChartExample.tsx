@@ -2,11 +2,14 @@ import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import { PieChart } from 'react-native-chart-kit';
 import { Dimensions } from "react-native";
+import { prodMedia } from '../../../models/produccion';
+
 const screenWidth = Dimensions.get("window").width-20;
 
 const PieChartExample = ({ valores }) => {
+  const vectorProds = prodMedia;
   const chartData = valores.map((value, index) => ({
-    name: ` %`,
+    name: `%  ${vectorProds[index]}`,
     value,
     color: `rgba(${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, 1)`,
   }));
@@ -16,7 +19,7 @@ const PieChartExample = ({ valores }) => {
       <PieChart
         data={chartData}
         width={screenWidth}
-        height={220}
+        height={180}
         chartConfig={{
           backgroundGradientFrom: '#ffffff',
           backgroundGradientTo: '#ffffff',

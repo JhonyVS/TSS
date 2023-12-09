@@ -2,12 +2,14 @@ import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import { LineChart } from 'react-native-chart-kit';
 import { Dimensions } from "react-native";
+
+
 const screenWidth = Dimensions.get("window").width -20;
 
 const LineChartExample = ({ data1, data2 }) => {
   const c = data2.map(p=> p*13);
   const chartData = {
-    labels: [], // Puedes personalizar las etiquetas según tus datos
+    labels: ['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'], // Puedes personalizar las etiquetas según tus datos
     datasets: [
       {
         data: data1,
@@ -37,7 +39,7 @@ const LineChartExample = ({ data1, data2 }) => {
         style={styles.chart}
         data={chartData}
         width={screenWidth}
-        height={200}
+        height={180}
         yAxisLabel="T. "
         //transparent={true}
         chartConfig={chartConfig}
