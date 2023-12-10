@@ -44,11 +44,11 @@ const ResultsTabs: React.FC = () => {
           } else if (route.name === 'Tab3') {
             iconName = focused ? 'analytics' : 'podium';
           } else if (route.name === 'Tab4') {
-            iconName = focused ? 'settings' : 'cog';
+            iconName = focused ? 'settings' : 'cog'; 
           }
 
           // Puedes devolver cualquier componente JSX como icono
-          return <Ionicons name={iconName} size={size} color={color} />;
+          return <Ionicons name={iconName} size={size} color={color} />; 
         },
       })}
     >
