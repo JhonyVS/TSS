@@ -6,7 +6,7 @@ import PieChartExample from './charts/PieChartExample';
 
 
 const valores = [10 , 15 , 30 , 35, 8 , 2 ];
-function mediaArray (vector: number[]) {
+export function mediaArray (vector: number[]) {
   let res:number[] = [];
   let j = 0;
   for (let i = 0; i < 12; i++) {
@@ -14,7 +14,7 @@ function mediaArray (vector: number[]) {
     for (j; j < ((vector.length/12)*(i+1)); j++) {
       med = med + vector[j];
     }
-    console.log(med);
+    //console.log(med);
     res[i]= med/(vector.length/12);
   }
   return res;

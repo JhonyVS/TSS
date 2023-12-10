@@ -42,7 +42,7 @@ const ResultsTabs: React.FC = () => {
           } else if (route.name === 'Tab2') {
             iconName = focused ? 'document' : 'ios-list';
           } else if (route.name === 'Tab3') {
-            iconName = focused ? 'ios-analytics' : 'podium';
+            iconName = focused ? 'analytics' : 'podium';
           } else if (route.name === 'Tab4') {
             iconName = focused ? 'settings' : 'cog';
           }

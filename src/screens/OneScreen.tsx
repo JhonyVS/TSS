@@ -8,6 +8,8 @@ import { ScrollView } from 'react-native-gesture-handler';
 
 type TwoScreenProp = StackNavigationProp<RootStackParamList, 'TwoScreen'>;
 
+const producciones = [55.2,54.3,65.4,60.0];
+
 const OneScreen: React.FC = () => {
   const navigation = useNavigation<TwoScreenProp>();
 

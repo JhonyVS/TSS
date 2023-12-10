@@ -8,15 +8,33 @@ const screenWidth = Dimensions.get("window").width -20;
 
 const LineChartExample = ({ data1, data2 }) => {
   const c = data2.map(p=> p*13);
+  const prods = mediaArray(data1);
+  const cams = mediaArray(c);
+
+  function mediaArray (vector: number[]) {
+    let res:number[] = [];
+    let j = 0;
+    for (let i = 0; i < 12; i++) {
+      let med = 0;
+      for (j; j < ((vector.length/12)*(i+1)); j++) {
+        med = med + vector[j];
+      }
+      //console.log(med);
+      res[i]= med/(vector.length/12);
+    }
+    return res;
+  }
+  
+
   const chartData = {
     labels: ['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'], // Puedes personalizar las etiquetas según tus datos
     datasets: [
       {
-        data: data1,
+        data: prods,
         color: (opacity = 1) => `rgba(134, 65, 244, ${opacity})`, // Color de la línea para data1
       },
       {
-        data: c,
+        data: cams,
         color: (opacity = 1) => `rgba(67, 156, 145, ${opacity})`, // Color de la línea para data2
       },
     ],

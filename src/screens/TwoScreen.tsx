@@ -2,7 +2,6 @@ import React from 'react';
 import { View, Text, StyleSheet, Button,ImageBackground} from 'react-native';
 import TableTransporte from '../components/tableTransporte';
 import { StatusBar } from 'expo-status-bar';
-import FooterCustom from '../components/FooterCustom';
 import { useNavigation } from '@react-navigation/native'; // Importa useNavigation
 import { StackNavigationProp } from '@react-navigation/stack';
 import { RootStackParamList } from '../RootStackParamList';
@@ -12,8 +11,11 @@ type resultsScreenBack = StackNavigationProp<RootStackParamList, 'OneScreen'>;
 
 
 const TwoScreen: React.FC = () => {
+
 const navigation = useNavigation<resultsScreenProp>(); // Obtiene la función de navegación
 const navigationBack = useNavigation<resultsScreenBack>(); // Obtiene la función de navegación
+const nav = useNavigation();
+//const producciones = nav.props.route
 
   const handleButtonPress = () => { 
     // Navega a la siguiente pantalla al presionar el botón

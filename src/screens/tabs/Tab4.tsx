@@ -55,7 +55,7 @@ return (
             </View>
             <View>
 
-            <View style={styles.containerButton}>
+            <View style={styles.containerButtonVolver}>
                     <Button title ='Volver Inicio' onPress={handleButtonPressVolver} />
                 </View>
 
@@ -73,13 +73,22 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     fontSize: 14,
 },
-  containerButton: {
-    justifyContent: 'center',
-    margin: 5,
-    elevation: 25,
-    paddingLeft: 40,
-    paddingRight: 40,
-    paddingBottom:40,
+containerButton: {
+  justifyContent: 'center',
+  margin: 5,
+  elevation: 25,
+  paddingLeft: 40,
+  paddingRight: 40,
+  paddingBottom:20,
+},
+containerButtonVolver: {
+  justifyContent: 'center',
+  margin: 5,
+  elevation: 25,
+  paddingTop: 80,
+  paddingLeft: 40,
+  paddingRight: 40,
+  paddingBottom:40,
 },
   container: {
     flex: 1,
