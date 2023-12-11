@@ -39,7 +39,13 @@ var costosCamsExtra = ():number =>{
     return costos;
   }
 
-costosCamsExtra();
+  export var variables= {
+    costoCamionExtra,
+    promedioProds,
+    promedioCams,
+    promedioCamionesProduccion,
+    costosCamsExtra,
+  }
 
 const Tab2: React.FC = () => {
 

@@ -1,9 +1,11 @@
 import { StackNavigationProp } from '@react-navigation/stack';
 import React from 'react';
-import { View, Text, StyleSheet, ImageBackground, ScrollView, TextInput, Button } from 'react-native';
+import { View, Text, StyleSheet, ImageBackground, ScrollView, Button } from 'react-native';
 import { RootStackParamList } from '../../RootStackParamList';
 import { useNavigation } from '@react-navigation/native'; // Importa useNavigation
-
+import { printToFileAsync } from 'expo-print';
+import { shareAsync } from 'expo-sharing';
+import PrintScreen from './print/PrintScreen';
 
 type resultsScreenBack = StackNavigationProp<RootStackParamList, 'OneScreen'>;
 
@@ -22,9 +24,18 @@ const Tab4: React.FC = () => {
         throw new Error('Function not implemented.');
     }
     function handleButtonPressPrint(): void {
-        throw new Error('Function not implemented.');
+         generatePdf();
     }
+    const html = PrintScreen.generateHtml();
 
+  let generatePdf = async () => {
+    const file = await printToFileAsync({
+      html: html,
+      base64: false
+    });
+
+    await shareAsync(file.uri);
+  };
 
 return ( 
 
