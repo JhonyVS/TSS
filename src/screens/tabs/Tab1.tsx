@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet, ImageBackground, ScrollView, TextInput } from 'react-native';
 import { Produccion } from '../../models/produccion';
 
-const diasLaborables: number = 250;
+const diasLaborables: number = 200;
 
 const p = new Produccion();
 

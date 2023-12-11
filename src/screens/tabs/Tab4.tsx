@@ -52,18 +52,8 @@ return (
             <View style={styles.containerButton}>
                 <Button title ='IMPRIMIR' onPress={handleButtonPressPrint} />
             </View>
-
-            <View>
-                <View style={styles.containerButton}>
-                    <Button title ='ABRIR' onPress={handleButtonPressOpen} />
-                </View>
-            </View>
-            <View>
-                
-                <View style={styles.containerButton}>
-                    <Button title ='GUARDAR' onPress={handleButtonPressSave} />
-                </View>
-            </View>
+              
+            
             <View>
 
             <View style={styles.containerButtonVolver}>

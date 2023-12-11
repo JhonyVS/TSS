@@ -83,7 +83,7 @@ const Tab2: React.FC = () => {
                 <Text style={styles.cellTextBordered}>1.300.000 $</Text>
               </View>
               <View style={[styles.cell, styles.thirdColumn]}>
-                <Text style={styles.cellTextBordered}>250</Text>
+                <Text style={styles.cellTextBordered}>200</Text>
               </View>
             </View>
             
@@ -135,7 +135,7 @@ const Tab2: React.FC = () => {
                 <Text style={styles.cellTextBordered}>{Number(promedioProds()* 250).toFixed(2)} t.</Text>
               </View>
               <View style={[styles.cell, styles.thirdColumn]}>
-                <Text style={styles.cellTextBordered}>{Number(promedioCamionesProduccion()-1).toFixed(0)}</Text>
+                <Text style={styles.cellTextBordered}>{Number(promedioCamionesProduccion()).toFixed(0)}</Text>
               </View>
               <View style={[styles.cell, styles.thirdColumn]}>
                 <Text style={styles.cellTextBordered}>{Number(costosCamsExtra()).toFixed(2)} $</Text>
